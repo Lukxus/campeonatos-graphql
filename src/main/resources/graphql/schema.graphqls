@@ -1,0 +1,17 @@
+type Campeonato {
+  id: ID!    # ATENÇÃO: no domínio está como long (0L). Recomendo migrar para String depois.
+  nome: String!
+}
+
+input CampeonatoInput {
+  nome: String!
+}
+
+type Query {
+  campeonato(id: ID!): Campeonato!
+  campeonatos: [Campeonato!]!
+}
+
+type Mutation {
+  criarCampeonato(input: CampeonatoInput!): Campeonato!
+}

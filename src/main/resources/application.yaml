@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: campeonatos-graphql
+  data:
+    mongodb:
+      # Ajuste a URI para seu ambiente. Para Docker local: mongodb://localhost:27017/campeonatos
+      uri: mongodb://localhost:27017/campeonatos
+  graphql:
+    graphiql:
+      enabled: true      # Interface web para testar queries/mutations
+    schema:
+      locations: classpath:graphql/
+
+  # JPA não é usado; mantemos logs enxutos
+  main:
+    banner-mode: console
+
+server:
+  port: 8080
+
+logging:
+  level:
+    org.springframework.data.mongodb: INFO
+    org.springframework.graphql: INFO
